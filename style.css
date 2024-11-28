@@ -1,0 +1,70 @@
+* {
+	margin: 0;
+}
+html {
+	font-size: 16px;
+	height: 100%;
+}
+
+
+body{
+  background-image: url(https://media.tenor.com/_wx4FeCW3_kAAAAC/pokemon-logo.gif);
+background-size: cover;
+  background-position: top 50;
+}
+
+header{
+  min-height: 35vh;
+  background-color: #0433ff;
+border:white;
+  border-style:solid;
+  border-width: 10px;
+}
+.doop{
+  color:#f5ec00;
+  font-size:50px;
+  font-family: emoji;
+  background-color:red;
+
+}
+.search{
+  text-align:center; 
+  color:#000000;
+  background-color:#fffc41; 
+  border:red;
+  border-style:dashed;
+  border-width:5px;
+  font-family: emoji;
+}
+
+
+
+.pokedexResults{
+         font-family: 'Baloo 2', cursive;
+  color:white;
+}
+
+.pokemon form-control{
+  color:#f5ec00;
+  font-size:50px;
+  font-family: emoji;
+  background-color:red;
+
+}
+
+
+.navbar-brand{
+  color:#f5ec00;
+  margin-left:20px;
+  font-family:'Baloo 2', cursive; 
+  
+}
+.nav-link{
+  color:#f5ec00;
+}
+.wow{
+  color:yellow;
+  background-color:red;
+  margin-top: 30px;
+  font-size:25px;
+}

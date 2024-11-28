@@ -1,0 +1,36 @@
+body{
+  background: url("https://64.media.tumblr.com/309ba57368afe609826d76eaafc88336/tumblr_pcqgasr5B91xnfihso1_540.gifv");
+  background-repeat:no-repeat; 
+  background-size: cover;
+}
+.about{
+  text-align:center;
+  font-size: 50px;
+  margin-top:20px;
+  background-color:red;
+  color:yellow;
+}
+.nav-link{
+  color:#c4bc00;
+}
+.navbar-brand{
+  color:#c4bc00;
+  margin-left:40px;
+}
+.link-box{
+  width:500px;
+  height:50px;
+  margin-left:100px;
+  border-radius: 25px;
+  border-color: yellow;
+  margin-top:100px;
+}
+.about2{
+  font-size:20px;
+  background-color:red;
+  border:black;
+  border-style:solid;
+  color:yellow;
+  width:500px;
+}
+

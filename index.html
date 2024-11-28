@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Pokemon Project</title>
+  <!--     jQUERY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+  </script>
+  <!--     GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+  <!--     BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!--     CUSTOM CSS -->
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#">Pokemon Generator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index2.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<header class="d-flex align-items-center">
+		<div class="container p-5 text-center">
+			<h1 class="doop">Pokémon Project</h1>
+      <p class ="wow"> Click the button below to generate a random Pokemon and learn about its details!</p>
+		</div>
+	</header>
+	<main>
+		<div class="container p-5">
+      <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+			<h1 class="search">Search for a Pokémon!</h1>
+
+          
+			<div class="input-group input-group-lg mb-5">
+<!--         TEXT FIELD -->
+        <input class="pokemon form-control" placeholder="Pokémon name..." type="text"> 
+<!--         SEARCH BUTTON -->
+  <button class="btn btn-primary searchButton" onclick="fetchPokemon()">Search</button>
+			</div>
+      
+			<!-- Placeholders for the information we will populate from our API. (For now let’s get the Name, ID, and Front Image for the pokemon) -->
+        <div class="pokedexResults text-center">
+          <!-- POKEMON NAME -->
+			<h3 id="res" class="mb-3">   </h3>
+          <!-- POKEMON ID # -->
+			<h3 id="pokeId" class="mb-3">  </h3>
+          <!-- POKEMON NUMBER -->
+      <img id="front" src="" class="img-fluid" />
+        
+        </div>
+		</div>
+		</div>
+	</main>
+<script>
+  function fetchPokemon(){
+    let pokemon = $(".pokemon").val();
+    let request = new XMLHttpRequest();
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+    console.log(url);
+    request.open("GET", url, true);
+    request.onload = function() {
+      if (this.response == 'Not Found') {
+        $('#res').text(`Search result for: ${pokemon}`);
+        $('#pokeId').text(`Pokemon not found. Please try again.`);  
+      } else {
+        let data = JSON.parse(this.response);
+        if(request.status >=200 && request.status < 400) {
+          let frontImg = data.sprites.front_default;
+          let pokeId = data.id;
+          $('#res').text(`Search result for: ${pokemon}`);
+          $('#pokeId').text(`Pokedex ID#: ${pokeId}`);
+          $('#front').attr('src', frontImg);
+        }
+      }
+    };
+    request.send();
+  }
+
+
+
+</script>
+
+
+  <!-- BOOTSTRAP JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> 
+
+
+
+
+</body>
+</html>
